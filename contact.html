@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact ASTRA Motion Pictures</title>
+<meta name="description" content="Get in touch with ASTRA Motion Pictures Private Limited. Contact producer Bikshamaiah Sangam for film production enquiries.">
+<link rel="stylesheet" href="astra.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+<div class="grain"></div>
+
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/logo.png" alt="Astra Motion Pictures Logo" class="nav-logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#films">Films</a></li>
+    <li><a href="legacy.html">Legacy</a></li>
+    <li><a href="index.html#producer">Producer</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&#10005;</button>
+  <a href="index.html" onclick="closeMobile()">Home</a>
+  <a href="index.html#films" onclick="closeMobile()">Films</a>
+  <a href="legacy.html">Legacy</a>
+  <a href="index.html#producer" onclick="closeMobile()">Producer</a>
+</div>
+
+<!-- CONTACT HERO -->
+<section class="section" style="min-height:40vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:8rem;">
+  <p class="section-label" style="opacity:1;transform:none;justify-content:center;">Get In Touch</p>
+  <h1 class="section-title" style="opacity:1;transform:none;text-align:center;">Let's Create Together</h1>
+  <p class="section-sub" style="opacity:1;transform:none;text-align:center;margin:0 auto;">Have a story worth telling? A project ready for the screen? We'd love to hear from you.</p>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="section page-section" style="padding-top:0;">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2 style="font-family:'Cinzel',serif;font-size:1.5rem;letter-spacing:2px;margin-bottom:1.5rem;font-weight:500;">Studio Information</h2>
+      <div class="contact-details">
+        <div class="ci"><span class="ci-label">Studio</span><span class="ci-val">ASTRA Motion Pictures<br>Private Limited</span></div>
+        <div class="ci"><span class="ci-label">Producer</span><span class="ci-val">Bikshamaiah Sangam</span></div>
+        <div class="ci"><span class="ci-label">Location</span><span class="ci-val">Hyderabad, Telangana<br>India</span></div>
+        <div class="ci"><span class="ci-label">Genre</span><span class="ci-val">Telugu &amp; Hindi<br>Feature Films</span></div>
+        <div class="ci"><span class="ci-label">Founded</span><span class="ci-val">2003</span></div>
+      </div>
+
+      <div style="margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+        <h3 style="font-family:'Poppins',sans-serif;font-size:.55rem;letter-spacing:5px;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;">Connect</h3>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+          <a href="https://www.imdb.com/name/nm9902056/" target="_blank" style="font-size:.8rem;color:var(--text-dim);transition:color .3s;font-family:'Inter',sans-serif;">IMDb</a>
+          <a href="#" style="font-size:.8rem;color:var(--text-dim);transition:color .3s;font-family:'Inter',sans-serif;">Instagram</a>
+          <a href="#" style="font-size:.8rem;color:var(--text-dim);transition:color .3s;font-family:'Inter',sans-serif;">Twitter</a>
+          <a href="#" style="font-size:.8rem;color:var(--text-dim);transition:color .3s;font-family:'Inter',sans-serif;">YouTube</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <div class="form-group"><label>Your Name</label><input type="text" placeholder="Enter your full name"></div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      <div class="form-group"><label>Subject</label><input type="text" placeholder="Film Production / Collaboration / Other"></div>
+      <div class="form-group"><label>Project Brief</label><textarea placeholder="Tell us about your project, idea, or enquiry..."></textarea></div>
+      <button class="btn-submit" id="btnSubmit">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fb-title">ASTRA<span>.</span></div>
+      <p>Where Stories Ignite. Crafting Telugu Cinema since 2003.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#films">Films</a></li>
+        <li><a href="legacy.html">Studio Legacy</a></li>
+        <li><a href="index.html#producer">Producer</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Social</h5>
+      <ul>
+        <li><a href="https://www.imdb.com/name/nm9902056/" target="_blank">IMDb</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">
+      <p>&copy; 2026 <span>ASTRA Motion Pictures Private Limited</span>. All rights reserved.</p>
+      <p>Produced by <span>Bikshamaiah Sangam</span> &middot; Hyderabad, India</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+
+// ── NAV ──
+document.getElementById('navBurger').addEventListener('click', () => { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; });
+document.getElementById('mobileClose').addEventListener('click', closeMobile);
+function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+// ── FORM ──
+document.getElementById('btnSubmit').addEventListener('click', function() {
+  this.textContent = '\u2713 Message Sent';
+  this.style.background = '#2a7a3a';
+  setTimeout(() => { this.textContent = 'Send Message'; this.style.background = ''; }, 3000);
+});
+
+// ── GSAP ENTRANCE ──
+gsap.registerPlugin(ScrollTrigger);
+gsap.fromTo('.contact-left', {opacity:0,x:-30}, {opacity:1,x:0,duration:.9,ease:'power3.out',delay:.3});
+gsap.fromTo('.contact-right', {opacity:0,x:30}, {opacity:1,x:0,duration:.9,delay:.5,ease:'power3.out'});
+</script>
+</body>
+</html>
