@@ -3,14 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ASTRA Motion Pictures Where Stories Ignite</title>
-<meta name="description" content="ASTRA Motion Pictures Private Limited A premium Telugu film production house crafting cinematic excellence since 2003. Produced by Bikshamaiah Sangam.">
+<title>ASTRA Motion Pictures | Where Stories Ignite</title>
+<meta name="description" content="ASTRA Motion Pictures Private Limited - A Legacy of Excellence in Indian Cinema. Headed by Mr. Bikshamaiah Sangam. Established in 2003.">
 <link rel="stylesheet" href="astra.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 <div class="grain"></div>
+<div class="bg-grid-lines">
+  <div class="bg-line"></div>
+  <div class="bg-line"></div>
+  <div class="bg-line"></div>
+  <div class="bg-line"></div>
+</div>
 
 
 <!-- LOADER -->
@@ -29,10 +35,11 @@
     <img src="assets/logo.png" alt="Astra Motion Pictures Logo" class="nav-logo-img">
   </a>
   <ul class="nav-links">
-    <li><a href="#films">Films</a></li>
-    <li><a href="legacy.html">Legacy</a></li>
-    <li><a href="#producer">Producer</a></li>
-    <li><a href="#awards">Awards</a></li>
+    <li><a href="#profile">Corporate Profile</a></li>
+    <li><a href="#upcoming">Upcoming Films</a></li>
+    <li><a href="#films">Filmography</a></li>
+    <li><a href="legacy.html">Studio Legacy</a></li>
+    <li><a href="#producer">The Visionary</a></li>
     <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
   <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
@@ -41,10 +48,11 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose">&#10005;</button>
-  <a href="#films" onclick="closeMobile()">Films</a>
+  <a href="#profile" onclick="closeMobile()">Corporate Profile</a>
+  <a href="#upcoming" onclick="closeMobile()}">Upcoming Films</a>
+  <a href="#films" onclick="closeMobile()}">Filmography</a>
   <a href="legacy.html">Studio Legacy</a>
-  <a href="#producer" onclick="closeMobile()">Producer</a>
-  <a href="#awards" onclick="closeMobile()">Awards</a>
+  <a href="#producer" onclick="closeMobile()}">The Visionary</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -52,17 +60,16 @@
 <section class="hero">
   <canvas id="particleCanvas"></canvas>
   <div class="hero-content" id="heroContent">
-
     <p class="hero-eyebrow" id="heroEyebrow">Est. 2003 &middot; Telugu Cinema &middot; Hyderabad</p>
     <h1 class="hero-title">
-      <span class="word">Where</span>
-      <span class="word accent">Stories</span>
-      <span class="word">Ignite</span>
+      <span class="word">ASTRA</span>
+      <span class="word accent">MOTION</span>
+      <span class="word">PICTURES</span>
     </h1>
-    <p class="hero-sub" id="heroSub">Two decades of crafting Telugu cinema that lives beyond the screen.</p>
+    <p class="hero-sub" id="heroSub">A Legacy of Excellence in Indian Cinema</p>
     <div class="hero-btns" id="heroBtns">
-      <button class="btn-primary" onclick="document.getElementById('films').scrollIntoView({behavior:'smooth'})"><span>Our Films</span></button>
-      <a href="legacy.html" class="btn-ghost">Studio Legacy</a>
+      <button class="btn-primary" onclick="document.getElementById('profile').scrollIntoView({behavior:'smooth'})"><span>Our Profile</span></button>
+      <button class="btn-ghost" onclick="document.getElementById('upcoming').scrollIntoView({behavior:'smooth'})">Upcoming Productions</button>
     </div>
   </div>
   <div class="hero-scroll"><span>SCROLL</span><div class="scroll-line"></div></div>
@@ -73,11 +80,76 @@
 
 <!-- STATS -->
 <div class="stats-bar">
-  <div class="stat-item"><div class="stat-num" data-count="13">0</div><div class="stat-lbl">Films Produced</div></div>
+  <div class="stat-item"><div class="stat-num" data-count="8">0</div><div class="stat-lbl">Films Produced</div></div>
   <div class="stat-item"><div class="stat-num" data-count="22">0</div><div class="stat-lbl">Years of Excellence</div></div>
   <div class="stat-item"><div class="stat-num" data-count="8">0</div><div class="stat-lbl">Blockbusters</div></div>
-  <div class="stat-item"><div class="stat-num" data-count="15">0<span class="stat-unit">+</span></div><div class="stat-lbl">Awards Won</div></div>
+  <div class="stat-item"><div class="stat-num" data-count="150">0<span class="stat-unit">+</span></div><div class="stat-lbl">Films Distributed</div></div>
 </div>
+
+<!-- CORPORATE PROFILE -->
+<section id="profile" class="section corp-profile-section">
+  <div class="section-header">
+    <div>
+      <p class="section-label">Corporate Profile</p>
+      <h2 class="section-title">Strategic Operations</h2>
+      <p class="section-sub">A Legacy of Excellence in Indian Cinema</p>
+    </div>
+  </div>
+  <div class="corp-grid">
+    <div class="corp-card">
+      <h3>Distribution Dominance</h3>
+      <p>Based out of Hyderabad, ASTRA Motion Pictures has proved to be a dominant force in theatrical distribution. The company has successfully distributed over 150 movies across the primary theatrical circuits of Telangana and Andhra Pradesh.</p>
+    </div>
+    <div class="corp-card">
+      <h3>Strategic Autonomy</h3>
+      <p>Built upon high-tier industry foundations, the studio initiated its journey under the prominent banner of SVC in close collaboration with V Venkata Ramana Reddy (Dil Raju Garu). This operational foundation paved the way for the studio's evolution into producing high-value movies entirely independently, scaling smoothly from regional roots to national operations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING PRODUCTIONS -->
+<section id="upcoming" class="section upcoming-section">
+  <div class="section-header">
+    <div>
+      <p class="section-label">ASTRA Motion Pictures &middot; In Production</p>
+      <h2 class="section-title">Upcoming Productions</h2>
+      <p class="section-sub">A glance at our upcoming projects currently in active production, pushing the boundaries of cinematic storytelling.</p>
+    </div>
+  </div>
+  <div class="upcoming-grid">
+    <!-- WhatsUp Romeo -->
+    <div class="upcoming-card">
+      <img src="posters/whatsup_romeo.png" alt="WhatsUp Romeo Poster" class="upcoming-card-img">
+      <div class="upcoming-card-overlay"></div>
+      <div class="upcoming-card-info">
+        <span class="upcoming-tag">In Production</span>
+        <h3>WhatsUp Romeo</h3>
+        <p>An upcoming romantic feature film produced and presented by ASTRA Motion Pictures.</p>
+      </div>
+    </div>
+    <!-- Nenu Jamuna -->
+    <div class="upcoming-card">
+      <img src="posters/nenu_jamuna.png" alt="Nenu Jamuna Poster" class="upcoming-card-img">
+      <div class="upcoming-card-overlay"></div>
+      <div class="upcoming-card-info">
+        <span class="upcoming-tag">In Production</span>
+        <h3>Nenu Jamuna</h3>
+        <p>An upcoming action-drama film directed by Bhaskar Ram under ASTRA banner.</p>
+      </div>
+    </div>
+    <!-- Guru Bramha Guru Vishnu -->
+    <div class="upcoming-card">
+      <img src="posters/guru_bramha.png" alt="Guru Bramha Guru Vishnu Poster" class="upcoming-card-img">
+      <div class="upcoming-card-overlay"></div>
+      <div class="upcoming-card-info">
+        <span class="upcoming-tag">In Production</span>
+        <h3>Guru Bramha Guru Vishnu</h3>
+        <p style="color:var(--accent); font-weight:500; font-size:0.8rem; margin-bottom:0.4rem;">"Gangster to Guru"</p>
+        <p>An upcoming cinematic transformation drama produced by ASTRA Motion Pictures.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FILMS -->
 <section id="films" class="section page-section">
@@ -85,7 +157,7 @@
     <div>
       <p class="section-label">Our Productions</p>
       <h2 class="section-title">The Filmography</h2>
-      <p class="section-sub">The latest productions from ASTRA Motion Pictures stories that push boundaries and captivate audiences.</p>
+      <p class="section-sub">A compilation of independent cinematic works produced and funded by ASTRA Motion Pictures under Mr. Bikshamaiah Sangam's direction, spanning multiple genres and themes.</p>
     </div>
   </div>
   <div class="films-grid" id="filmsGrid"></div>
@@ -95,23 +167,21 @@
 <section id="producer" class="section producer-section">
   <div class="producer-inner">
     <div class="producer-portrait">
-      <img src="assets/producer.png" alt="Bikshamaiah Sangam" class="producer-image">
+      <img src="assets/producer.png" alt="Mr. Bikshamaiah Sangam" class="producer-image">
     </div>
     <div class="producer-info">
       <p class="section-label" style="opacity:1;transform:none;">The Visionary</p>
-      <h3>Bikshamaiah Sangam</h3>
+      <h3>Mr. Bikshamaiah Sangam</h3>
       <div class="producer-role">
-        Founder &amp; Producer
+        Founder &amp; Chairman
         <a href="https://www.imdb.com/name/nm9902056/" target="_blank" class="imdb-btn" title="IMDb Profile">IMDb</a>
       </div>
-      <p>Bikshamaiah Sangam is the visionary founder of ASTRA Motion Pictures Private Limited (formerly known as BS Production House), a distinguished film production house based in Hyderabad, Telangana. With an unwavering passion for storytelling, he has dedicated over two decades to nurturing cinematic talent and producing films that resonate deeply with audiences.</p>
-      <p>His independent production journey includes notable films such as the successful <strong>Nandini Nursing Home (2016)</strong>, the gripping thriller <strong>Ekta (2019)</strong>, the intense drama <strong>D3: Dosti Dil Dhokha (2021)</strong>, and the recent compelling releases <strong>TTDS (2024)</strong> and <strong>Dil Dosti Duniyadari (2024)</strong>.</p>
-      <p>His production philosophy centres on discovering bold narratives, championing emerging directors, and creating films that blend commercial appeal with artistic integrity. Under his stewardship, the studio has produced critically acclaimed films across genres establishing a legacy that spans generations of filmgoers.</p>
+      <p>Headed by Mr. Bikshamaiah Sangam, ASTRA Motion Pictures has established a significant history in the Indian entertainment industry, specializing in large-scale movie production, distribution, and financing. Driven by strategic growth, Mr. Sangam successfully expanded the studio's footprint beyond the regional Telugu film industry directly into Bollywood, marking a major national entry with the release of the acclaimed action thriller <em>EKTA</em>.</p>
+      <p>His production philosophy centres on discovering bold narratives, championing emerging directors, and creating films that blend commercial appeal with artistic integrity. Under his stewardship, the studio has produced critically acclaimed films across genres, establishing a legacy that spans generations of filmgoers.</p>
       <div class="producer-stats">
-        <div class="producer-stat"><div class="num">13</div><div class="lbl">Films</div></div>
+        <div class="producer-stat"><div class="num">8</div><div class="lbl">Produced</div></div>
         <div class="producer-stat"><div class="num">22</div><div class="lbl">Years</div></div>
-        <div class="producer-stat"><div class="num">15+</div><div class="lbl">Awards</div></div>
-        <div class="producer-stat"><div class="num">8</div><div class="lbl">Hits</div></div>
+        <div class="producer-stat"><div class="num">150+</div><div class="lbl">Distributed</div></div>
       </div>
     </div>
   </div>
@@ -131,44 +201,38 @@
   </div>
 </section>
 
-<!-- AWARDS -->
-<section id="awards" class="section page-section alt">
-  <p class="section-label">Recognition</p>
-  <h2 class="section-title">Awards &amp; Honours</h2>
-  <p class="section-sub">A legacy of excellence recognised across the Telugu film industry.</p>
-  <div class="awards-grid" id="awardsGrid"></div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="fb-title">ASTRA<span>.</span></div>
-      <p>Where Stories Ignite. Crafting Telugu Cinema since 2003. A production house with heritage and vision.</p>
+      <div class="fb-title" style="display:flex;align-items:center;gap:0.5rem;font-family:'Cinzel',serif;font-weight:600;">
+        <img src="assets/logo.png" alt="Astra Motion Pictures Logo" style="width:50px; height:auto; object-fit:contain;">
+        ASTRA<span>.</span>
+      </div>
+      <p>Where Stories Ignite. A Legacy of Excellence in Indian Cinema. Established in 2003.</p>
     </div>
     <div class="footer-links">
       <h5>Navigate</h5>
       <ul>
-        <li><a href="#films">Films</a></li>
+        <li><a href="#profile">Corporate Profile</a></li>
+        <li><a href="#upcoming">Upcoming Films</a></li>
+        <li><a href="#films">Filmography</a></li>
         <li><a href="legacy.html">Studio Legacy</a></li>
-        <li><a href="#producer">Producer</a></li>
-        <li><a href="#awards">Awards</a></li>
+        <li><a href="#producer">The Visionary</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-links">
-      <h5>Latest Films</h5>
+      <h5>Corporate Info</h5>
       <ul>
-        <li><a href="#">Nandini Nursing Home (2016)</a></li>
-        <li><a href="#">Ekta (2019)</a></li>
-        <li><a href="#">D3: Dosti Dil Dhokha (2021)</a></li>
-        <li><a href="#">TTDS (2024)</a></li>
-        <li><a href="#">Dil Dosti Duniyadari (2024)</a></li>
+        <li><a href="#">Jubilee Hills, Hyderabad</a></li>
+        <li><a href="tel:04035736447">040-35736447</a></li>
+        <li><a href="tel:9866394611">+91 9866394611</a></li>
       </ul>
     </div>
     <div class="footer-copy">
       <p>&copy; 2026 <span>ASTRA Motion Pictures Private Limited</span>. All rights reserved.</p>
-      <p>Produced by <span>Bikshamaiah Sangam</span> &middot; Hyderabad, India</p>
+      <p>Headed by <span>Mr. Bikshamaiah Sangam</span> &middot; Hyderabad, India</p>
     </div>
   </div>
 </footer>

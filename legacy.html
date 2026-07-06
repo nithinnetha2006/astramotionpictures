@@ -3,14 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Legacy ASTRA Motion Pictures</title>
-<meta name="description" content="The iconic early filmography of ASTRA Motion Pictures films produced during the ASTRA & Sri Venkateswara Creations collaboration era (2003-2009).">
+<title>Studio Legacy | ASTRA Motion Pictures</title>
+<meta name="description" content="The iconic early filmography of ASTRA Motion Pictures (formerly BS Production House) produced during the collaboration era (2003-2009).">
 <link rel="stylesheet" href="astra.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 <div class="grain"></div>
+<div class="bg-grid-lines">
+  <div class="bg-line"></div>
+  <div class="bg-line"></div>
+  <div class="bg-line"></div>
+  <div class="bg-line"></div>
+</div>
 
 
 <!-- NAV -->
@@ -20,8 +26,10 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#films">Films</a></li>
-    <li><a href="index.html#producer">Producer</a></li>
+    <li><a href="index.html#profile">Corporate Profile</a></li>
+    <li><a href="index.html#upcoming">Upcoming Films</a></li>
+    <li><a href="index.html#films">Filmography</a></li>
+    <li><a href="index.html#producer">The Visionary</a></li>
     <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
   <button class="nav-burger" id="navBurger"><span></span><span></span><span></span></button>
@@ -29,9 +37,11 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose">&#10005;</button>
-  <a href="index.html" onclick="closeMobile()">Home</a>
-  <a href="index.html#films" onclick="closeMobile()">Films</a>
-  <a href="index.html#producer" onclick="closeMobile()">Producer</a>
+  <a href="index.html">Home</a>
+  <a href="index.html#profile" onclick="closeMobile()">Corporate Profile</a>
+  <a href="index.html#upcoming" onclick="closeMobile()}">Upcoming Films</a>
+  <a href="index.html#films" onclick="closeMobile()}">Filmography</a>
+  <a href="index.html#producer" onclick="closeMobile()}">The Visionary</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -47,7 +57,7 @@
 <!-- COLLABORATION NOTICE -->
 <section class="section page-section" style="padding-top:3rem;padding-bottom:0;">
   <div class="legacy-notice">
-    <p>The following films were produced during the <strong>ASTRA Motion Pictures &amp; Sri Venkateswara Creations</strong> collaboration period (2003–2009). This historic partnership brought together two visionary production houses, resulting in some of the most beloved and critically acclaimed Telugu films ever made.</p>
+    <p>The following landmark films were produced during the historic collaboration period (2003–2009) in joint venture between <strong>ASTRA Motion Pictures</strong> and <strong>Sri Venkateswara Creations (SVC)</strong>, where our founder <strong>Mr. Bikshamaiah Sangam</strong> acted as a passive investor, supporting these celebrated cinematic creations that shaped the Telugu film landscape.</p>
   </div>
 </section>
 
@@ -73,30 +83,34 @@
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="fb-title">ASTRA<span>.</span></div>
-      <p>Where Stories Ignite. Crafting Telugu Cinema since 2003.</p>
+      <div class="fb-title" style="display:flex;align-items:center;gap:0.5rem;font-family:'Cinzel',serif;font-weight:600;">
+        <img src="assets/logo.png" alt="Astra Motion Pictures Logo" style="width:50px; height:auto; object-fit:contain;">
+        ASTRA<span>.</span>
+      </div>
+      <p>Where Stories Ignite. A Legacy of Excellence in Indian Cinema &amp; Infrastructure Development. Established in 2003.</p>
     </div>
     <div class="footer-links">
       <h5>Navigate</h5>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#films">Films</a></li>
-        <li><a href="index.html#producer">Producer</a></li>
+        <li><a href="index.html#profile">Corporate Profile</a></li>
+        <li><a href="index.html#upcoming">Upcoming Films</a></li>
+        <li><a href="index.html#films">Filmography</a></li>
+        <li><a href="index.html#producer">The Visionary</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="footer-links">
-      <h5>Legacy Films</h5>
+      <h5>Corporate Info</h5>
       <ul>
-        <li><a href="#">Dil (2003)</a></li>
-        <li><a href="#">Arya (2004)</a></li>
-        <li><a href="#">Bommarillu (2006)</a></li>
-        <li><a href="#">Kotha Bangaru Lokam (2008)</a></li>
+        <li><a href="#">Jubilee Hills, Hyderabad</a></li>
+        <li><a href="tel:04035736447">040-35736447</a></li>
+        <li><a href="tel:9866394611">+91 9866394611</a></li>
       </ul>
     </div>
     <div class="footer-copy">
       <p>&copy; 2026 <span>ASTRA Motion Pictures Private Limited</span>. All rights reserved.</p>
-      <p>Produced by <span>Bikshamaiah Sangam</span> &middot; Hyderabad, India</p>
+      <p>Headed by <span>Mr. Bikshamaiah Sangam</span> &middot; Hyderabad, India</p>
     </div>
   </div>
 </footer>
@@ -114,13 +128,13 @@ const legacyFilms = [
 ];
 
 const timelineData = [
-  { year:'2003', title:'Dil', detail:'<strong>Dir:</strong> V.V. Vinayak · ASTRA\'s debut production becomes a blockbuster hit, launching a legendary journey.', big:true },
-  { year:'2004', title:'Arya', detail:'<strong>Dir:</strong> Sukumar · Sukumar\'s genre-defining debut. A cult classic that redefined Telugu romantic cinema.', award:'Multiple Award Nominations' },
-  { year:'2005', title:'Bhadra', detail:'<strong>Dir:</strong> Boyapati Srinu · An explosive debut establishes ASTRA as a blockbuster factory.', big:false },
-  { year:'2006', title:'Bommarillu', detail:'<strong>Dir:</strong> Bhaskar · ASTRA\'s magnum opus sweeps every major award ceremony.', award:'Nandi Award + 5× Filmfare South', big:true },
-  { year:'2007', title:'Munna', detail:'<strong>Dir:</strong> Vamshi Paidipally · Prabhas stars in a gritty action drama.', big:false },
-  { year:'2008', title:'Parugu & KBL', detail:'Two masterpieces in one year Parugu with Allu Arjun and Kotha Bangaru Lokam with Varun Sandesh.', award:'4 Nandi + 5 Filmfare South', big:true },
-  { year:'2009', title:'Josh', detail:'Naga Chaitanya\'s debut closes the golden collaboration era with style.', big:false }
+  { year:'2003', title:'Dil', detail:'<strong>Dir:</strong> V.V. Vinayak · ASTRA\'s debut production (under the former BS Production House banner) becomes a massive blockbuster hit, establishing the legendary joint venture with SVC and launching a historic theatrical legacy.', big:true },
+  { year:'2004', title:'Arya', detail:'<strong>Dir:</strong> Sukumar · Sukumar\'s genre-defining directorial debut starring Allu Arjun. A monumental cult classic that redefined Telugu romantic cinema with standard-setting screenplays and chartbuster music by DSP.' },
+  { year:'2005', title:'Bhadra', detail:'<strong>Dir:</strong> Boyapati Srinu · An explosive action-drama debut establishes ASTRA as a blockbuster factory capable of massive theatrical scale and record collections.', big:false },
+  { year:'2006', title:'Bommarillu', detail:'<strong>Dir:</strong> Bhaskar · ASTRA\'s magnum opus, focusing on the complex dynamics of a father-son relationship. It completely sweeps the Nandi Awards, Filmfare Awards, and sets box-office milestones.', big:true },
+  { year:'2007', title:'Munna', detail:'<strong>Dir:</strong> Vamshi Paidipally · Prabhas stars in a gritty action drama characterized by high production values and elaborate set designs.', big:false },
+  { year:'2008', title:'Parugu & KBL', detail:'A rare double-blockbuster year: Parugu featuring Allu Arjun\'s spectacular performance, and Srikanth Addala\'s emotional debut Kotha Bangaru Lokam, cementing the studio\'s peak golden era.', big:true },
+  { year:'2009', title:'Josh', detail:'Vasu Varma directs Naga Chaitanya\'s grand debut, completing ASTRA\'s historic seven-year collaboration with SVC before transitioning to independent productions.', big:false }
 ];
 
 // ── RENDER LEGACY FILMS ──
@@ -129,7 +143,9 @@ legacyFilms.forEach(f => {
   const card = document.createElement('div');
   card.className = 'legacy-card';
   card.innerHTML = `
-    <img class="legacy-card-img" src="${f.poster}" alt="${f.title}" loading="lazy" onerror="this.style.display='none'">
+    <div style="width:100%; height:100%; overflow:hidden; aspect-ratio:2/3; position:relative;">
+      <img class="legacy-card-img" src="${f.poster}" alt="${f.title}" loading="lazy" onerror="this.style.display='none'">
+    </div>
     <div class="legacy-card-info">
       <div class="year">${f.year}</div>
       <h3>${f.title}</h3>
@@ -143,10 +159,14 @@ legacyFilms.forEach(f => {
 const tlEl = document.getElementById('timelineList');
 const tlStyles = `
   <style>
-    .tl-item{display:flex;gap:1.5rem;margin-bottom:2.5rem;opacity:0;transform:translateX(-20px);align-items:flex-start}
+    #timelineList { position: relative; }
+    .tl-progress-bg { position: absolute; left: 98.5px; top: 12px; bottom: 12px; width: 2px; background: rgba(255,255,255,0.04); z-index: 1; }
+    .tl-progress-bar { position: absolute; left: 98.5px; top: 12px; width: 2px; height: 0%; background: linear-gradient(to bottom, var(--accent), #dbb76a); z-index: 2; transition: height 0.1s ease; }
+    .tl-item{display:flex;gap:1.5rem;margin-bottom:2.5rem;opacity:0;transform:translateX(-25px);align-items:flex-start;position:relative;z-index:3}
     .tl-year{font-family:'Cinzel',serif;font-size:1.5rem;color:var(--accent);min-width:70px;text-align:right;line-height:1;padding-top:4px;font-weight:600}
-    .tl-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--accent);background:var(--bg);flex-shrink:0;margin-top:8px}
-    .tl-dot.big{width:13px;height:13px;background:var(--accent)}
+    .tl-dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--accent);background:var(--bg);flex-shrink:0;margin-top:8px;position:relative;z-index:4;transition:background 0.4s, transform 0.4s, box-shadow 0.4s;}
+    .tl-dot.big{width:13px;height:13px;margin-left:-2px;}
+    .tl-dot.active { background: var(--accent); transform: scale(1.2); box-shadow: 0 0 10px var(--accent); }
     .tl-content{flex:1}
     .tl-film{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:1px;color:#fff;margin-bottom:4px;font-weight:500}
     .tl-detail{font-size:.75rem;color:var(--text-dim);line-height:1.7}
@@ -154,14 +174,21 @@ const tlStyles = `
     .tl-award{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 12px;background:var(--accent-dim);border:1px solid rgba(200,164,92,0.2);font-size:.6rem;letter-spacing:2px;color:var(--accent);text-transform:uppercase}
   </style>`;
 tlEl.innerHTML = tlStyles;
+
+const progressBg = document.createElement('div');
+progressBg.className = 'tl-progress-bg';
+tlEl.appendChild(progressBg);
+
+const progressBar = document.createElement('div');
+progressBar.className = 'tl-progress-bar';
+tlEl.appendChild(progressBar);
+
 timelineData.forEach(item => {
   const el = document.createElement('div');
   el.className = 'tl-item';
   el.innerHTML = `<div class="tl-year">${item.year}</div><div class="tl-dot${item.big?' big':''}"></div><div class="tl-content"><div class="tl-film">${item.title}</div><div class="tl-detail">${item.detail}</div>${item.award?`<div class="tl-award">\u{1F3C6} ${item.award}</div>`:''}</div>`;
   tlEl.appendChild(el);
 });
-
-
 
 // ── NAV ──
 document.getElementById('navBurger').addEventListener('click', () => { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; });
@@ -170,11 +197,92 @@ function closeMobile() { document.getElementById('mobileMenu').classList.remove(
 
 // ── SCROLL ANIMATIONS ──
 gsap.registerPlugin(ScrollTrigger);
-gsap.utils.toArray('.section-label').forEach(el => { gsap.to(el, {opacity:1,x:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 85%'}}); });
-gsap.utils.toArray('.section-title').forEach(el => { gsap.to(el, {opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 82%'}}); });
-gsap.utils.toArray('.section-sub').forEach(el => { gsap.to(el, {opacity:1,y:0,duration:.9,delay:.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 80%'}}); });
-gsap.utils.toArray('.legacy-card').forEach((el,i) => { gsap.fromTo(el, {opacity:0,y:40}, {opacity:1,y:0,duration:.7,delay:i*.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}); });
-gsap.utils.toArray('.tl-item').forEach((el,i) => { gsap.to(el, {opacity:1,x:0,duration:.7,delay:i*.06,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}); });
+
+// Timeline drawing animation
+gsap.to(progressBar, {
+  height: 'calc(100% - 24px)',
+  ease: 'none',
+  scrollTrigger: {
+    trigger: '#timelineList',
+    start: 'top 40%',
+    end: 'bottom 60%',
+    scrub: true
+  }
+});
+
+// Staggered section header elements
+gsap.utils.toArray('.section-header, #timeline').forEach(hdr => {
+  const label = hdr.querySelector('.section-label');
+  const title = hdr.querySelector('.section-title');
+  const sub = hdr.querySelector('.section-sub');
+  
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: hdr,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+
+  if (label) tl.fromTo(label, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+  if (title) tl.fromTo(title, { opacity: 0, y: 35 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.45');
+  if (sub) tl.fromTo(sub, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6');
+});
+
+// Legacy cards reveal and image parallax
+gsap.fromTo('.legacy-card',
+  { opacity: 0, y: 70, scale: 0.92 },
+  {
+    opacity: 1, y: 0, scale: 1, duration: 1.2, ease: 'power4.out', stagger: 0.12,
+    scrollTrigger: { trigger: '#legacyGrid', start: 'top 85%' }
+  }
+);
+
+gsap.utils.toArray('.legacy-card').forEach(card => {
+  const img = card.querySelector('.legacy-card-img');
+  if (img) {
+    gsap.fromTo(img, { yPercent: -12 }, {
+      yPercent: 12,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  }
+});
+
+// Staggered timeline item fade-in and dot activation
+gsap.utils.toArray('.tl-item').forEach((item, i) => {
+  const dot = item.querySelector('.tl-dot');
+  
+  gsap.fromTo(item, 
+    { opacity: 0, x: -30 },
+    { 
+      opacity: 1, x: 0, duration: 0.8, ease: 'power3.out',
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 82%',
+        toggleActions: 'play none none reverse'
+      }
+    }
+  );
+
+  if (dot) {
+    gsap.to(dot, {
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 40%',
+        end: 'bottom 40%',
+        toggleActions: 'play reverse play reverse',
+        onEnter: () => dot.classList.add('active'),
+        onLeaveBack: () => dot.classList.remove('active')
+      }
+    });
+  }
+});
 </script>
 </body>
 </html>

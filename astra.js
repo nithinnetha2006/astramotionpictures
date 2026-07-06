@@ -7,16 +7,6 @@ const films = [
   { year:2024, title:'Dil Dosti Duniyadari', director:'Bhaskar Ram', cast:'Shubhankar Tawde, Dnyanada Ramtirthkar', poster:'posters/ddd.jpg' }
 ];
 
-const awards = [
-  { icon:'\u{1F3C6}', title:'Best Film', film:'Bommarillu', body:'Filmfare Awards South Best Telugu Film of the decade.', year:'2006' },
-  { icon:'\u{1F947}', title:'Nandi Award', film:'Bommarillu', body:'AP State Nandi Award for Best Film.', year:'2006' },
-  { icon:'\u{1F3AC}', title:'Best Director', film:'Arya', body:'Sukumar wins Best Director for his landmark debut.', year:'2004' },
-  { icon:'\u2B50', title:'Best Actor', film:'Bommarillu', body:'Siddharth wins Best Actor across all major awards.', year:'2006' },
-  { icon:'\u{1F3B5}', title:'Best Music', film:'Multiple Films', body:'DSP and Mickey J. Meyer sweep Best Music awards.', year:'2006-08' },
-  { icon:'\u{1F31F}', title:'Filmfare South', film:'Kotha Bangaru Lokam', body:'Five Filmfare Awards South including Best Film.', year:'2009' },
-  { icon:'\u{1F3C5}', title:'Nandi Awards', film:'Parugu', body:'Two Nandi Awards for direction and performance.', year:'2009' },
-  { icon:'\u{1F3AD}', title:'Best Comedy', film:'Nandini Nursing Home', body:'Best Comedy Performance at regional awards.', year:'2016' }
-];
 
 // ── LOADER ──
 function runLoader() {
@@ -35,7 +25,6 @@ window.addEventListener('load', runLoader);
 // ── HERO ANIMATION ──
 function runHeroAnim() {
   gsap.timeline({ defaults:{ ease:'power4.out' }})
-    .to('#heroLogoWrap', { opacity:1, scale:1, duration:1 }, 0)
     .to('#heroEyebrow', { opacity:1, y:0, duration:.8 }, 0.3)
     .to('.hero-title .word', { opacity:1, y:0, duration:1, stagger:.15 }, 0.5)
     .to('#heroSub', { opacity:1, duration:.8 }, 1)
@@ -94,7 +83,7 @@ if (dot && ring) {
     ring.style.left=rx+'px'; ring.style.top=ry+'px';
     requestAnimationFrame(curAnim);
   })();
-  document.querySelectorAll('a,button,.film-card,.bts-inner,.award-card').forEach(el => {
+  document.querySelectorAll('a,button,.film-card,.bts-inner').forEach(el => {
     el.addEventListener('mouseenter', () => { ring.style.width='60px'; ring.style.height='60px'; ring.style.background='rgba(200,164,92,0.08)'; });
     el.addEventListener('mouseleave', () => { ring.style.width='40px'; ring.style.height='40px'; ring.style.background='transparent'; });
   });
@@ -142,57 +131,148 @@ function renderFilms() {
 }
 renderFilms();
 
-// ── RENDER AWARDS ──
-const ag = document.getElementById('awardsGrid');
-awards.forEach(a => {
-  const el = document.createElement('div');
-  el.className = 'award-card';
-  el.innerHTML = `<span class="award-icon">${a.icon}</span><div class="award-title">${a.title}</div><div class="award-film">${a.film}</div><div class="award-body">${a.body}</div><div class="award-year">${a.year}</div>`;
-  ag.appendChild(el);
-});
 
 // ── SCROLL ANIMATIONS ──
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.utils.toArray('.section-label').forEach(el => {
-  gsap.to(el, { opacity:1, x:0, duration:.8, ease:'power3.out',
-    scrollTrigger:{ trigger:el, start:'top 85%' }});
+// 1. Hero Scroll Scrub (Apple style zoom & fade-out)
+gsap.timeline({
+  scrollTrigger: {
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom top',
+    scrub: true
+  }
+})
+.to('#heroContent', { y: -80, scale: 0.93, opacity: 0, ease: 'none' }, 0)
+.to('#particleCanvas', { y: 120, scale: 1.08, opacity: 0.35, ease: 'none' }, 0);
+
+// 2. Section Headers Orchestrated Reveal
+gsap.utils.toArray('.section-header').forEach(hdr => {
+  const label = hdr.querySelector('.section-label');
+  const title = hdr.querySelector('.section-title');
+  const sub = hdr.querySelector('.section-sub');
+  
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: hdr,
+      start: 'top 85%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+
+  if (label) tl.fromTo(label, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+  if (title) tl.fromTo(title, { opacity: 0, y: 35 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.45');
+  if (sub) tl.fromTo(sub, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6');
 });
-gsap.utils.toArray('.section-title').forEach(el => {
-  gsap.to(el, { opacity:1, y:0, duration:1, ease:'power3.out',
-    scrollTrigger:{ trigger:el, start:'top 82%' }});
+
+// 3. Staggered Stat Items Count-up
+gsap.utils.toArray('.stat-item').forEach((el, i) => {
+  gsap.fromTo(el, 
+    { opacity: 0, y: 30, scale: 0.95 },
+    { opacity: 1, y: 0, scale: 1, duration: 0.8, delay: i * 0.08, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%' },
+      onComplete() {
+        const n = el.querySelector('.stat-num'); 
+        const t = parseInt(n.dataset.count);
+        const u = n.querySelector('.stat-unit'); 
+        let c = 0; 
+        const s = t / 45;
+        const iv = setInterval(() => {
+          c = Math.min(c + s, t); 
+          n.textContent = Math.floor(c);
+          if (u) n.appendChild(u); 
+          if (c >= t) clearInterval(iv);
+        }, 25);
+      }
+    }
+  );
 });
-gsap.utils.toArray('.section-sub').forEach(el => {
-  gsap.to(el, { opacity:1, y:0, duration:.9, delay:.1, ease:'power3.out',
-    scrollTrigger:{ trigger:el, start:'top 80%' }});
+
+// 4. Staggered Reveal for Corporate Cards
+gsap.fromTo('.corp-card', 
+  { opacity: 0, y: 55, scale: 0.94 }, 
+  { 
+    opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power4.out', stagger: 0.15,
+    scrollTrigger: { trigger: '.corp-grid', start: 'top 85%' }
+  }
+);
+
+// 5. Staggered Card Reveal + Image Parallax Scroll for Upcoming Productions (GTA 6 style)
+gsap.fromTo('.upcoming-card',
+  { opacity: 0, y: 70, scale: 0.92 },
+  {
+    opacity: 1, y: 0, scale: 1, duration: 1.2, ease: 'power4.out', stagger: 0.15,
+    scrollTrigger: { trigger: '.upcoming-grid', start: 'top 85%' }
+  }
+);
+
+gsap.utils.toArray('.upcoming-card').forEach(card => {
+  const img = card.querySelector('.upcoming-card-img');
+  if (img) {
+    gsap.fromTo(img, { yPercent: -12 }, {
+      yPercent: 12,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  }
 });
-gsap.utils.toArray('.stat-item').forEach((el,i) => {
-  gsap.to(el, { opacity:1, y:0, duration:.6, delay:i*.1, ease:'power3.out',
-    scrollTrigger:{ trigger:el, start:'top 88%', onEnter() {
-      const n=el.querySelector('.stat-num'); const t=parseInt(n.dataset.count);
-      const u=n.querySelector('.stat-unit'); let c=0; const s=t/40;
-      const iv=setInterval(() => {
-        c=Math.min(c+s,t); n.textContent=Math.floor(c);
-        if(u) n.appendChild(u); if(c>=t) clearInterval(iv);
-      }, 30);
-    }}});
+
+// 6. Staggered Card Reveal + Image Parallax Scroll for Filmography Grid
+gsap.fromTo('.film-card',
+  { opacity: 0, y: 70, scale: 0.92 },
+  {
+    opacity: 1, y: 0, scale: 1, duration: 1.2, ease: 'power4.out', stagger: 0.12,
+    scrollTrigger: { trigger: '#filmsGrid', start: 'top 85%' }
+  }
+);
+
+gsap.utils.toArray('.film-card').forEach(card => {
+  const img = card.querySelector('.film-card-img');
+  if (img) {
+    gsap.fromTo(img, { yPercent: -12 }, {
+      yPercent: 12,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: card,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+      }
+    });
+  }
 });
-gsap.utils.toArray('.film-card').forEach((el,i) => {
-  gsap.fromTo(el, {opacity:0,y:40}, {opacity:1,y:0,duration:.7,delay:i*.1,ease:'power3.out',
-    scrollTrigger:{ trigger:el, start:'top 88%' }});
-});
-gsap.utils.toArray('.award-card').forEach((el,i) => {
-  gsap.to(el, { opacity:1, y:0, duration:.6, delay:(i%4)*.08, ease:'power3.out',
-    scrollTrigger:{ trigger:el, start:'top 87%' }});
-});
-gsap.utils.toArray('.bts-cell').forEach((el,i) => {
-  gsap.fromTo(el, {opacity:0,y:20}, {opacity:1,y:0,duration:.7,delay:i*.08,ease:'power3.out',
-    scrollTrigger:{ trigger:el, start:'top 88%' }});
-});
-gsap.fromTo('.producer-inner', {opacity:0,y:40}, {opacity:1,y:0,duration:1,ease:'power3.out',
-  scrollTrigger:{ trigger:'#producer', start:'top 75%' }});
-gsap.to('#heroContent', { y:60, ease:'none',
-  scrollTrigger:{ trigger:'.hero', start:'top top', end:'bottom top', scrub:true }});
+
+// 7. Staggered Reveal for Behind The Lens grid
+gsap.fromTo('.bts-cell',
+  { opacity: 0, y: 40, scale: 0.96 },
+  {
+    opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power3.out', stagger: 0.08,
+    scrollTrigger: { trigger: '.bts-grid', start: 'top 88%' }
+  }
+);
+
+// 8. Producer Section Parallax Overlapping Entrance
+gsap.fromTo('.producer-portrait',
+  { opacity: 0, x: -50, scale: 0.95 },
+  {
+    opacity: 1, x: 0, scale: 1, duration: 1.3, ease: 'power4.out',
+    scrollTrigger: { trigger: '#producer', start: 'top 78%' }
+  }
+);
+
+gsap.fromTo('.producer-info',
+  { opacity: 0, x: 50 },
+  {
+    opacity: 1, x: 0, duration: 1.3, ease: 'power4.out',
+    scrollTrigger: { trigger: '#producer', start: 'top 78%' }
+  }
+);
 
 // ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
