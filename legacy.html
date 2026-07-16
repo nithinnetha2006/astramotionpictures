@@ -39,9 +39,9 @@
   <button class="mobile-close" id="mobileClose">&#10005;</button>
   <a href="index.html">Home</a>
   <a href="index.html#profile" onclick="closeMobile()">Corporate Profile</a>
-  <a href="index.html#upcoming" onclick="closeMobile()}">Upcoming Films</a>
-  <a href="index.html#films" onclick="closeMobile()}">Filmography</a>
-  <a href="index.html#producer" onclick="closeMobile()}">The Visionary</a>
+  <a href="index.html#upcoming" onclick="closeMobile()">Upcoming Films</a>
+  <a href="index.html#films" onclick="closeMobile()">Filmography</a>
+  <a href="index.html#producer" onclick="closeMobile()">The Visionary</a>
   <a href="contact.html">Contact</a>
 </div>
 
@@ -63,9 +63,13 @@
 
 <!-- LEGACY FILMS GRID -->
 <section class="section page-section" id="legacyFilms">
-  <p class="section-label">2003 2009</p>
-  <h2 class="section-title">The Archive</h2>
-  <p class="section-sub">Eight landmark films that shaped the Telugu film landscape.</p>
+  <div class="section-header">
+    <div>
+      <p class="section-label">2003 2009</p>
+      <h2 class="section-title">The Archive</h2>
+      <p class="section-sub">Eight landmark films that shaped the Telugu film landscape.</p>
+    </div>
+  </div>
   <div class="legacy-grid" id="legacyGrid"></div>
 </section>
 
@@ -117,14 +121,14 @@
 
 <script>
 const legacyFilms = [
-  { year:2003, title:'Dil', director:'V. V. Vinayak', cast:'Nithiin, Neha', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468301/search_images/daefe13a8b7f06ef4c1ebb80103451c601be8dbb.jpg' },
-  { year:2004, title:'Arya', director:'Sukumar', cast:'Allu Arjun, Anu Mehta, Siva Balaji', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468301/search_images/ba60c34cef5c03c647951c7dd24ff7837dc29e7b.jpg' },
-  { year:2005, title:'Bhadra', director:'Boyapati Srinu', cast:'Ravi Teja, Meera Jasmine', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468301/search_images/2ee89301a7c8b19ac95868cc3f3a372f4c81c302.jpg' },
-  { year:2006, title:'Bommarillu', director:'Bhaskar', cast:'Siddharth, Genelia D\'Souza, Prakash Raj', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468308/search_images/61ab72cd9074cf92f2bfac008b4607f141be77e6.jpg' },
-  { year:2007, title:'Munna', director:'Vamshi Paidipally', cast:'Prabhas, Ileana D\'Cruz', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468308/search_images/7077da4e68bbf3f3fdbd04894aa5b14501d03460.jpg' },
-  { year:2008, title:'Parugu', director:'Bhaskar', cast:'Allu Arjun, Sheela Kaur, Prakash Raj', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468308/search_images/901779ef1cc84a16dbdc34ae7e2f0f1b32039ca6.jpg' },
-  { year:2008, title:'Kotha Bangaru Lokam', director:'Srikanth Addala', cast:'Varun Sandesh, Shweta Basu Prasad', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468318/search_images/07436caf55db539b36be62c6932a188d5d1b6473.jpg' },
-  { year:2009, title:'Josh', director:'Vasu Varma', cast:'Naga Chaitanya, Karthika Nair', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468317/search_images/af412ca40958aa7c4b7d6c198443af7b117bd3f2.jpg' }
+  { year:2003, title:'Dil', director:'V. V. Vinayak', cast:'Nithiin, Neha', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468301/search_images/daefe13a8b7f06ef4c1ebb80103451c601be8dbb.jpg', detail:'ASTRA\'s debut production (under the former BS Production House banner) becomes a massive blockbuster hit, establishing the legendary joint venture with SVC.' },
+  { year:2004, title:'Arya', director:'Sukumar', cast:'Allu Arjun, Anu Mehta, Siva Balaji', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468301/search_images/ba60c34cef5c03c647951c7dd24ff7837dc29e7b.jpg', detail:'Sukumar\'s genre-defining directorial debut starring Allu Arjun. A monumental cult classic that redefined Telugu romantic cinema with standard-setting screenplays and chartbuster music by DSP.' },
+  { year:2005, title:'Bhadra', director:'Boyapati Srinu', cast:'Ravi Teja, Meera Jasmine', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468301/search_images/2ee89301a7c8b19ac95868cc3f3a372f4c81c302.jpg', detail:'An explosive action-drama debut establishes ASTRA as a blockbuster factory capable of massive theatrical scale and record collections.' },
+  { year:2006, title:'Bommarillu', director:'Bhaskar', cast:'Siddharth, Genelia D\'Souza, Prakash Raj', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468308/search_images/61ab72cd9074cf92f2bfac008b4607f141be77e6.jpg', detail:'ASTRA\'s magnum opus, focusing on the complex dynamics of a father-son relationship. It completely sweeps the Nandi Awards, Filmfare Awards, and sets box-office milestones.' },
+  { year:2007, title:'Munna', director:'Vamshi Paidipally', cast:'Prabhas, Ileana D\'Cruz', poster:'https://upload.wikimedia.org/wikipedia/en/6/6b/Munna_film_poster.jpg', detail:'Prabhas stars in a gritty action drama characterized by high production values and elaborate set designs.' },
+  { year:2008, title:'Parugu', director:'Bhaskar', cast:'Allu Arjun, Sheela Kaur, Prakash Raj', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468308/search_images/901779ef1cc84a16dbdc34ae7e2f0f1b32039ca6.jpg', detail:'A spectacular performance by Allu Arjun in a heartwarming romantic drama exploring the emotional conflict between a father and his daughter\'s love.' },
+  { year:2008, title:'Kotha Bangaru Lokam', director:'Srikanth Addala', cast:'Varun Sandesh, Shweta Basu Prasad', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468318/search_images/07436caf55db539b36be62c6932a188d5d1b6473.jpg', detail:'Srikanth Addala\'s emotional directorial debut, capturing the nostalgic purity of college romance and cementing the studio\'s peak golden era.' },
+  { year:2009, title:'Josh', director:'Vasu Varma', cast:'Naga Chaitanya, Karthika Nair', poster:'https://pplx-res.cloudinary.com/image/upload/v1770468317/search_images/af412ca40958aa7c4b7d6c198443af7b117bd3f2.jpg', detail:'Vasu Varma directs Naga Chaitanya\'s grand debut, completing ASTRA\'s historic seven-year collaboration with SVC before transitioning to independent productions.' }
 ];
 
 const timelineData = [
@@ -143,7 +147,7 @@ legacyFilms.forEach(f => {
   const card = document.createElement('div');
   card.className = 'legacy-card';
   card.innerHTML = `
-    <div style="width:100%; height:100%; overflow:hidden; aspect-ratio:2/3; position:relative;">
+    <div style="width:100%; overflow:hidden; aspect-ratio:2/3; position:relative;">
       <img class="legacy-card-img" src="${f.poster}" alt="${f.title}" loading="lazy" onerror="this.style.display='none'">
     </div>
     <div class="legacy-card-info">
@@ -151,6 +155,7 @@ legacyFilms.forEach(f => {
       <h3>${f.title}</h3>
       <div class="director">Dir. ${f.director}</div>
       <div class="cast">${f.cast}</div>
+      <p class="detail">${f.detail}</p>
     </div>`;
   grid.appendChild(card);
 });
